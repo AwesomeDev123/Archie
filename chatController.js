@@ -14,7 +14,7 @@ methods.getAnswer = (req) => {
                 model: "text-davinci-001",
                 prompt: req.body.question,
             }).then((data) => {
-                resolve({status: data.response.status, message: data.data});
+                resolve({status: 200, message: data.data.choices[0].text});
             });
         } catch(e) {
             reject(e);
